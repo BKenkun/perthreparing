@@ -10,7 +10,7 @@ const Faq = () => {
         },
         {
             question: "How long do repairs take?",
-            answer: "Our goal is speed. Many common repairs, like screen or battery replacements, are completed the same day. For more complex issues, we'll give you a clear estimated time after the diagnosis."
+            answer: "Our goal is speed. Many common repairs are completed the same day. For more complex issues, we'll give you a clear estimated time after the diagnosis."
         },
         {
             question: "Do I need an appointment?",
