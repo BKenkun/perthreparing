@@ -8,20 +8,20 @@ const Process = () => {
   const steps = [
     {
       step: "1",
-      title: "Contacta y Agenda",
-      description: "(Cita Esencial)",
+      title: "Contact and Schedule",
+      description: "(Essential Appointment)",
       icon: MessageCircle
     },
     {
       step: "2", 
-      title: "Nos reunimos en Perth",
-      description: "Diagnóstico profesional",
+      title: "We Meet in Perth",
+      description: "Professional Diagnosis",
       icon: Settings
     },
     {
       step: "3",
-      title: "Recoge y Disfruta",
-      description: "Tu dispositivo funcionando perfectamente",
+      title: "Pick Up and Enjoy!",
+      description: "Your Device Working Perfectly",
       icon: CheckCircle
     }
   ];
