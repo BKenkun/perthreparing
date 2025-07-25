@@ -21,7 +21,7 @@ const Process = () => {
     {
       step: "3",
       title: "Pick Up and Enjoy!",
-      description: "Your Device Working Perfectly",
+      description: "Your Device Working Perfectly!",
       icon: CheckCircle
     }
   ];
