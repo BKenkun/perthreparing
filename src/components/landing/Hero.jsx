@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
@@ -6,9 +5,30 @@ import { Clock, Wrench, MessageCircle, Mail, Phone, CheckCircle, Zap, AlertTrian
 import { fadeInUp, staggerContainer } from '@/lib/animations';
 
 const Hero = () => {
-  const handleWhatsApp = () => window.open('https://api.whatsapp.com/send?phone=61456534558', '_blank');
-  const handleEmail = () => window.open('mailto:xusbyte@gmail.com', '_blank');
-  const handleCall = () => window.open('tel:+61456534558', '_blank');
+  // Función auxiliar para enviar el evento al Pixel
+  const trackFacebookContactEvent = () => {
+    if (typeof fbq === 'function') {
+      fbq('track', 'Contact');
+      console.log('Evento de Contact enviado a Facebook Pixel');
+    } else {
+      console.warn('Facebook Pixel (fbq) no está cargado o no es una función.');
+    }
+  };
+
+  const handleWhatsApp = () => {
+    trackFacebookContactEvent(); // Enviar evento al hacer clic en WhatsApp
+    window.open('https://api.whatsapp.com/send?phone=61456534558', '_blank');
+  };
+
+  const handleEmail = () => {
+    trackFacebookContactEvent(); // Enviar evento al hacer clic en Email
+    window.open('mailto:xusbyte@gmail.com', '_blank');
+  };
+
+  const handleCall = () => {
+    trackFacebookContactEvent(); // Enviar evento al hacer clic en Call Us
+    window.open('tel:+61456534558', '_blank');
+  };
 
   return (
     <section className="relative min-h-screen flex items-center justify-center px-4 py-20">
@@ -69,7 +89,7 @@ const Hero = () => {
           </motion.div>
           <motion.div className="relative" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.2 }}>
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <img  alt="Technician repairing a complex electronic device with precision tools" className="w-full h-auto object-cover" src="https://images.unsplash.com/photo-1658212662417-a2a76efe25df" />
+              <img alt="Technician repairing a complex electronic device with precision tools" className="w-full h-auto object-cover" src="https://images.unsplash.com/photo-1658212662417-a2a76efe25df" />
               <div className="absolute inset-0 bg-gradient-to-t from-purple-900/50 to-transparent"></div>
               <div className="absolute top-4 right-4 bg-green-500 rounded-full p-3 shadow-lg">
                 <CheckCircle className="w-6 h-6 text-white" />
