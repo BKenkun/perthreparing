@@ -4,8 +4,25 @@ import { Button } from '@/components/ui/button';
 import { MessageCircle, Phone, Zap } from 'lucide-react';
 
 const FinalCta = () => {
-    const handleWhatsApp = () => window.open('https://api.whatsapp.com/send?phone=61456534558', '_blank');
-    const handleCall = () => window.open('tel:+61456534558', '_blank');
+    // Función auxiliar para enviar el evento 'Contact' al Pixel de Meta
+    const trackFacebookContactEvent = () => {
+        if (typeof fbq === 'function') {
+            fbq('track', 'Contact');
+            console.log('Evento de Contact enviado a Facebook Pixel desde FinalCta');
+        } else {
+            console.warn('Facebook Pixel (fbq) no está cargado o no es una función.');
+        }
+    };
+
+    const handleWhatsApp = () => {
+        trackFacebookContactEvent(); // Enviar evento al hacer clic en WhatsApp
+        window.open('https://api.whatsapp.com/send?phone=61456534558', '_blank');
+    };
+
+    const handleCall = () => {
+        trackFacebookContactEvent(); // Enviar evento al hacer clic en Call Us
+        window.open('tel:+61456534558', '_blank');
+    };
 
     return (
         <section className="py-20 px-4">
